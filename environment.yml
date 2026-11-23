@@ -1,0 +1,11 @@
+name: uav-survey-planner
+channels:
+  - conda-forge
+dependencies:
+  - python=3.11
+  - numpy
+  - pandas
+  - matplotlib>=3.7
+  - ipython
+  - ipykernel
+  - ffmpeg
