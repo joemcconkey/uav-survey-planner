@@ -17,7 +17,7 @@ aircraft_with_battery_kg = 9.740
 l3_kg = 1.600
 l3_connector_kg = 0.145
 tb100_kg = 4.720
-loaded_reference_min = 53
+loaded_reference_min = 53  # H30T + AP100 reference, not an L3 endurance test
 airborne_endurance_min = 45
 reduced_endurance_min = 35
 landing_reserve_fraction = 0.25
@@ -48,7 +48,7 @@ bearings_deg = range(0, 180, 15)
 cross_grid = False
 pieces_per_strip = 1
 daily_window_h = 8
-ready_battery_sets_per_day = 10     # Each set powers one sortie; no field recharge
+ready_battery_sets_per_day = 9     # Nine nominal + one separate contingency TB100; no field recharge
 turnaround_min = 7                 # Per completed sortie, including field QA
 setup_packdown_min = 35
 survey_control_min_per_day = 60     # Include walking to control/checkpoints here
@@ -327,3 +327,12 @@ def compare(spacing, endurance, slant_limit=c2_slant_limit_m):
             winners[name] = choice
         rows.append(row)
     return pd.DataFrame(rows).sort_values(["days","field_h"]), winners
+# r04 mission-only settings (legacy optimizer remains unchanged)
+active_aircraft = 1
+reserve_aircraft = 1
+reserve_batteries = 1
+shoreline_water_buffer_m = 60  # provisional RGB context, not client specified
+exclude_deep_water = True
+lidar_scan_mode = "Star-shaped"
+lidar_returns = 16
+imu_allowance_min_per_sortie = 1.0  # placeholder calibration allowance
